@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  speechify:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/home/node/app/
+    environment:
+      - NODE_ENV=development
