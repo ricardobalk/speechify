@@ -29,7 +29,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  @apply text-teal-500;
   text-decoration: none;
 }
 
