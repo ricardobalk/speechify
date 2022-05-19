@@ -3,7 +3,15 @@ import { createContainer } from 'react-tracked';
 
 const initialState = {
   currentSearchQuery: '',
-  feedbackMessage: ''
+  feedbackMessage: '',
+  spotifyCredentials: {
+    clientId: process.env.CLIENTID,
+    clientSecret: process.env.CLIENTSECRET,
+    tokenType: 'Bearer',
+    accessToken: '',
+    expiresIn: '',
+    refreshToken: '',
+  }
 };
 
 const useMyState = () => useState(initialState);
