@@ -1,0 +1,9 @@
+.container {
+    @apply py-4;
+    input {
+        @apply px-2 rounded-l-xl w-full border border-teal-500 border-r-0;
+    }
+    button {
+        @apply px-2 border border-teal-500 bg-white rounded-r-xl;
+    }
+}

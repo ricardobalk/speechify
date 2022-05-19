@@ -1,0 +1,6 @@
+.container {
+  @apply border-solid border-t border-t-gray-100 flex flex-1 items-center justify-center flex-grow px-0 py-8;
+  a {
+    @apply flex items-center justify-center flex-grow;
+  }
+}
