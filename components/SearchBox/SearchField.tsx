@@ -7,6 +7,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import MicIcon from "@/components/SearchBox/MicIcon";
+import GetSongsFromSpotify from "methods/GetSongsFromSpotify";
 
 const SpeechInput = () => {
   const [state, setState] = useSharedState();
@@ -21,14 +22,19 @@ const SpeechInput = () => {
 
   const performGeneralSearch = (searchTerm: string) => {
     setState({
+      ...state,
       feedbackMessage: `Hold on, looking for ${searchTerm}.`,
       currentSearchQuery: searchTerm,
     });
+
+//    GetSongsFromSpotify(state.currentSearchQuery, state.spotifyCredentials.accessToken);
+
     resetTranscript();
   };
 
   const playSong = ({artist, song, } : Record<string, string>) => {
     setState({
+      ...state,
       currentSearchQuery: `${artist} - ${song}`,
       feedbackMessage: `Looking for the song ${song} by ${artist}`
     });
@@ -109,6 +115,17 @@ const SearchField = ({ props }: { props: SearchFieldProps }): JSX.Element => {
       ...state,
       currentSearchQuery: value,
     });
+
+    const accessToken = "BQCdm1O8Kh1ey5NhrhyzeKo1-IZFbxsAaQcwAaBH5xV0WjEkkSb0i3I9LUIRUbD086QQAhmt1FscVYlib_FbobFxFZDH_8mS20L9GkVYnfaZOjmuQxu0HMH_Y8k5iUjK1MqBZtkCFagwnxolGiZBRY0JWCbzUoO0Y39StSvq8j1NJc3gv1fcGrBG-abqtUZS4vTCRXA3Qg"; // state.spotifyCredentials.accessToken
+    
+    GetSongsFromSpotify("Michael Jackson", accessToken).then
+    ((responseData) => (
+      setState({
+        ...state,
+        spotifyData: responseData,
+      })
+    ))
+    
   };
 
   const handleChange = useCallback(_.debounce(setQueryValue, 1000), []);

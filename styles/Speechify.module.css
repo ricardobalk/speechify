@@ -21,6 +21,10 @@
   @apply w-10/12 max-w-lg; 
 }
 
+.results {
+  @apply w-3/4;
+}
+
 .logo {
   @apply h-4 ml-2;
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { createContainer } from 'react-tracked';
 
 const initialState = {
+  spotifyData: {},
   currentSearchQuery: '',
   feedbackMessage: '',
   spotifyCredentials: {
